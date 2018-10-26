@@ -73,4 +73,7 @@ function islandora_ead_preprocess_islandora_ead(&$variables) {
   $content['narrative'] = $transformed_xml->asXML();
 
   $variables['content'] = $content;
+/* don't index me bro */
+$robots = array('#type' => 'html_tag', '#tag' => 'meta', '#attributes' => array('name' => 'robots', 'content' => 'noindex'));
+        drupal_add_html_head($robots, 'robots');
 }
